@@ -1,0 +1,147 @@
+body{
+  scroll-behavior: smooth;
+  font-family: 'Cardo', serif;
+  background: #d9d5d5;
+}
+.navbar{
+  position: sticky;
+  top: 0%;
+}
+.moving-up{
+  display: block;
+  position: fixed;
+  background-color: #fff;
+  right: 2%;
+  bottom: 2%;
+  padding: 10px;
+  border-radius: 5px;
+  border-color: none;
+}
+.hr-line{
+  background-color: white;
+  padding: 1px;
+}
+.help-button-blood-group{
+  min-height: 120px;
+}
+.help-width-button{
+  width: 300px;
+}
+.privacy{
+  text-align: center;
+  font-size: small;
+  color: white;
+  letter-spacing: 6px;
+  border-top: 0.5px solid white;
+  padding: 10px;
+  margin: 0%;
+}
+.privacy span{
+  margin: 0px 15px 0 15px;
+}
+#about{
+  margin: 30px 0 0 0;
+  background: rgb(26, 26, 26);
+  color: white;
+  bottom: 0%;
+}
+.links{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.links .links-button{
+  background: #f5f5f9;
+  padding: 12px;
+  border-radius: 50%;
+}
+.links h2{
+  margin: 10px;
+  font-size: 20px;
+}
+.links .links-button:hover{
+  background: #bcbcc4;
+}
+.search-bar{
+  height: 40px;
+  width: 350px;
+  border-radius: 10px;
+  border: 3px solid rgb(137, 232, 137);
+  font-size: 15px;
+  letter-spacing: 3px;
+  border-color: none;
+}
+.test{
+  height: auto;
+  width: 100%;
+}
+@media (max-width : 420px){
+  .container-sm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    min-width: auto;
+    margin: 0;
+  }
+  .container-sm h5{
+    font-size: medium;
+  }
+  .container-sm h6{
+    display: flex;
+    flex-direction: row;
+    font-size: 10px;
+  }
+  .copyright{
+    font-size: 7px;
+  }
+  .privacy{
+    text-align: center;
+    font-size: 8px;
+    letter-spacing: 0;
+    border-top: 1px solid white;
+    width: 100%;
+  }
+  .privacy span{
+    margin: 2px;
+  }
+  .table-sm{
+    min-width: 100px;
+  }
+  .t-data{
+    font-size: 7px;
+  }
+  .t-width{
+    min-width: auto;
+  }
+  .t-button{
+    height: auto;
+    width: 20px;
+  }
+  .links .links-button{
+    background: #f5f0f0;
+    padding: 5px;
+    border-radius: 50%;
+    border-color: none;
+    width: auto;
+  }
+  .links h2{
+    margin: 5px;
+    font-size: 15px;
+  }
+  .links .links-button:hover{
+    background: #bcbcc4;
+  }
+  .search-bar{
+    height: 20px;
+    width: 150px;
+    border-radius: 2px;
+    font-size: 8px;
+    border: 2px solid rgb(137, 232, 137);
+    border-color: none;
+  }
+  .search-bar label{
+    font-size: 5px;
+  }
+  
+}
