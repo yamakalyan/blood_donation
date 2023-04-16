@@ -38,8 +38,8 @@ function Reg() {
         donor_email : donorEmail,
         donor_age : donorAge,
         donor_blood : donorBloodGroup,
-        donor_address1 : address1.toLowerCase(),
-        donor_address2 : address2.toLowerCase()
+        donor_address1 : address1,
+        donor_address2 : address2
     }
     const options = {
         method : 'POST',
@@ -60,11 +60,14 @@ function Reg() {
     return (
     <>
     <Navbar/>
-    <div className='container'>
+    <div className='container-fluid'>
             <form onSubmit={handleRegistration}>
         <div className='row bg-light p-5'>
-            <div className='col-sm-6 col-md-6 col-lg-6 mt-3'>
-                <h2 className='text-primary text-center'>Personal details</h2>
+            <div className='col-sm-4 col-md-4 col-lg-4 mt-3'>
+                <img src='blood1.png' className='img-fluid' alt='blood'/>
+            </div>
+            <div className='col-sm-4 col-md-4 col-lg-4 mt-3 shadow py-3'>
+                <h2 className='text-primary text-center'>Personal details</h2><hr/>
                 {regsiteredMsg ? 
                 <h4 className='text-success text-center'>{regsiteredMsg}</h4>
                     :
@@ -117,8 +120,8 @@ function Reg() {
                 </div>
                 </div>
            
-             <div className='col-sm-6 col-md-6 col-lg-6 mt-3'>
-                <h3 className='text-center text-primary'>Add Address where your available</h3><hr/>
+             <div className='col-sm-4 col-md-4 col-lg-4 mt-3'>
+                <h4 className='text-center'>Add Address where your available</h4><hr/>
 
             <div className="form-group">
                 <label >Address 1</label>
@@ -176,8 +179,8 @@ function Reg() {
             </div>
             <div className="form-group">
             </div>
+            <button type="submit" className="btn btn-success btn-lg btn-block">Submit & Save Donor</button>
             </div> 
-            <button type="submit" className="btn btn-primary btn-lg btn-block">Save Address</button>
         </div>
         </form>
     </div>

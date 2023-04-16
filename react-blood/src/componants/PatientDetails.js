@@ -37,7 +37,7 @@ function PatientDetails() {
         .then(data =>{
             if (data.server) {
                 setMsg(data.message)
-                navigator(`/finder/${patientBloodgroup}/${lowerCaseLocation}`)
+                navigator(`/finder/${params.id}/${lowerCaseLocation}`)
             } else {
                 setMsg(data.message)
             }
@@ -55,20 +55,20 @@ function PatientDetails() {
                 <div className="form-row">
                     <div className="form-group col-md-6">
                     <label>Patient Name</label>
-                    <input type="text" className="form-control" placeholder="patient-name" onChange={(e)=>setPatientName(e.target.value)} required />
+                    <input type="text" className="form-control" placeholder="Patient name" onChange={(e)=>setPatientName(e.target.value)} required />
                 </div>
                     <div className="form-group col-md-6">
                     <label>Patient Mobile</label>
-                    <input type="number" className="form-control" onChange={(e)=>setPatientMobile(e.target.value)} required  placeholder="Patient-mobile"/>
+                    <input type="number" className="form-control" onChange={(e)=>setPatientMobile(e.target.value)} required  placeholder="Patient mobile"/>
                     </div>
                 </div>
                 <div className="form-group">
                     <label >Hospital Details</label>
-                    <input type="text" className="form-control" onChange={(e)=>setHospital(e.target.value)} required  placeholder="Ex : Apolo, Hyderabad"/>
+                    <input type="text" className="form-control" onChange={(e)=>setHospital(e.target.value)} required  placeholder="Ex : Apollo, nimms etc...."/>
                 </div>
                 <div className="form-group">
                     <label>Location || City</label>
-                    <input type="text" className="form-control" onChange={(e)=>setRequiredLocation(e.target.value)} required  placeholder="Ex : Armoor, Nizambad, Hyderabad"/>
+                    <input type="text" className="form-control" onChange={(e)=>setRequiredLocation(e.target.value)} required  placeholder="Ex : Please mention main city Armoor, Nizambad, Hyderabad"/>
                 </div>
                 
                 <div className="form-row">
@@ -78,13 +78,12 @@ function PatientDetails() {
                     </div>
                     <div className="form-group col-md-4">
                     <label>Patient Age</label>
-                    <input type="number" placeholder='23, 34, 54, 64' onChange={(e)=>setPatientAge(e.target.value)} required  className="form-control" id="age"/>
+                    <input type="number" placeholder='Ex: 23, 34, 54, 64....' onChange={(e)=>setPatientAge(e.target.value)} required  className="form-control"/>
                     </div>
                     <div className="form-group col-md-4">
                     <label>Select Blood Group</label>
                     <select className="form-control" onChange={(e)=>setPatientBloodgroup(e.target.value)} required >
-                        {/* <option se>{params.id}</option> */}
-                        <option >choose if mistaken....</option>
+                        <option value={params.id} >{params.id}</option>
                         <option value='A+'>A+</option>
                         <option value='A-'>A-</option>
                         <option value='B+'>B+</option>

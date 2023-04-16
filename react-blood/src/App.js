@@ -18,6 +18,7 @@ function App() {
       <Route path='/register' element={<Reg/>}></Route>
       <Route path='/support' element={<Support/>}></Route>
       <Route path='/about' element={<About/>}></Route>
+      <Route path='/finder' element={<Finder />}></Route>
       <Route path='/finder/:group' element={<Finder />}></Route>
       <Route path='/finder/:group/:location' element={<Finder />}></Route>
       <Route path='/thanks/:name' element={<Thanks />}></Route>

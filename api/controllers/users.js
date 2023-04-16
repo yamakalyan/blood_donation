@@ -30,11 +30,11 @@ donor.get('/', (req, res)=>{
     }
 })
 // SEARCHING  DONORS LOCATIONS USING LOCATION FROM UI
-donor.get('/search/', (req, res)=>{
+donor.post('/search/', (req, res)=>{
     try {
-    const search = req.query.text
+    const search = req.query.q
 
-    const getSql = `SELECT * FROM donors WHERE concat(donor_address1, " ", donor_address2) LIKE '%${search }%'`
+    const getSql = `SELECT * FROM donors WHERE donor_address1 LIKE '%${search }%' OR donor_address2 LIKE '%${search}%'`
 
     database.query(getSql, (err, results)=>{
         if (err) {
@@ -50,10 +50,11 @@ donor.get('/search/', (req, res)=>{
                     message : 'donor not found'
                 })
             } else {
+                const filtering = results.filter((filters)=>filters.donor_blood_group.includes(req.body.blood_group))
                 res.status(200).json({
                     server : true,
                     message : "donor found",
-                    results
+                    filtering
                 })
             }
         }

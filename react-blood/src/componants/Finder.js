@@ -6,9 +6,10 @@ import About from './About'
 function Finder() {
     const [group, setGroup] = useState([])
     const [search, setSearch] = useState([])
-    const [msg, setMsg] = useState('')
+    const [searchValue, setSearchValue] = useState([])
+    const [searchMethod, setSearchMethod] = useState(false)
     const params = useParams()
-    const groupName = params.group
+    const keys = ['donor_address1', 'donor_address2']
 
     const num = 1
     const increment = num * 1
@@ -20,7 +21,6 @@ function Finder() {
             .then(data =>{
                 if (data.server) {
                     setGroup(data.results)
-                    locationGettingSearch()
                 } else {
                     alert("no data found")
                 }
@@ -29,52 +29,96 @@ function Finder() {
         return ()=> fetching()
     }, [])
 
-    const locationGettingSearch = ()=>{
+    var tableMapping = group.filter((blood)=>blood.donor_blood_group.includes(params.group))
 
-        const searchLocation = params.location
-
-        fetch(`http://localhost:3120/donor/search/?text=${searchLocation}`)
-        .then(response =>response.json())
-        .then(data =>{
-            if (data.server) {
-                setSearch(data.results)
-                setMsg(data.message)
-            } else {
-                setMsg(data.message)
+    useEffect(()=>{
+        const fetchingSearch = async ()=>{
+            const options = {
+                method : 'POST',
+                headers : {'content-type' : 'application/json'},
+                body : JSON.stringify({
+                    blood_group : params.group
+                })
             }
-        })
-    }
-    console.log(search)
-    console.log(msg)
+            await fetch(`http://localhost:3120/donor/search?q=${params.location}`, options)
+            .then(response =>response.json())
+            .then(data =>{
+                if (data.server) {
+                    setSearchMethod(data.server)
+                    setSearchValue(data.filtering)
+                    filteredData()
+                } else {
+                    setSearchMethod(data.server)
+                    setSearchValue(data.filtering)
+                    filteredData()
+                }
+            })
+        }
+        fetchingSearch()
+    }, [])
 
-    const filtering = group.filter((f)=>f.donor_blood_group === groupName)
+    const filteredData =()=>{
 
-    const tableMapping = filtering.map((donor, d)=>{
+    if (searchValue !== undefined) {
         return (
-                <tr key={d}>
-                    <td className='t-data'>{increment}</td>
-                    <td className='t-data'>{donor.donor_name}</td>
-                    <td className='t-data'>{donor.donor_mobile}</td>
-                    <td className='t-data'>{donor.donor_email}</td>
-                    <td className='t-data'>{donor.donor_blood_group}</td>
-                    <td className='t-data'>{donor.donor_address1}</td>
-                    <td className='t-data'>{donor.donor_address2}</td>
-                </tr>
+            searchValue.map((donor, d)=>{
+                return (
+        <tr key={d}>
+            <td className='t-data'>{increment}</td>
+            <td className='t-data'>{donor.donor_name}</td>
+            <td className='t-data'>{donor.donor_mobile}</td>
+            <td className='t-data'>{donor.donor_email}</td>
+            <td className='t-data'>{donor.donor_blood_group}</td>
+            <td className='t-data'>{donor.donor_address1}</td>
+            <td className='t-data'>{donor.donor_address2}</td>
+        </tr>
+                )
+            }) 
         )
-    })
-   
+    } else {
+        return (
+            tableMapping.filter((filtered)=>keys.some((key)=>filtered[key].includes(search))).map((donor, d)=>{
+                return (
+        <tr key={d}>
+            <td className='t-data'>{increment}</td>
+            <td className='t-data'>{donor.donor_name}</td>
+            <td className='t-data'>{donor.donor_mobile}</td>
+            <td className='t-data'>{donor.donor_email}</td>
+            <td className='t-data'>{donor.donor_blood_group}</td>
+            <td className='t-data'>{donor.donor_address1}</td>
+            <td className='t-data'>{donor.donor_address2}</td>
+        </tr>
+                )
+            }) 
+        )
+    }
+    }
+
+var groupMapping = group.map((donor, b)=>{
+        return(
+            <tr key={b}>
+                <td className='t-data'>{increment}</td>
+                <td className='t-data'>{donor.donor_name}</td>
+                <td className='t-data'>{donor.donor_mobile}</td>
+                <td className='t-data'>{donor.donor_email}</td>
+                <td className='t-data'>{donor.donor_blood_group}</td>
+                <td className='t-data'>{donor.donor_address1}</td>
+                <td className='t-data'>{donor.donor_address2}</td>
+            </tr>
+    )
+})
+console.log(searchMethod)
+console.log(searchValue)
 
   return (
     <>
     <Navbar/>
     <div className='container-fluid '>
+        
         <div className='row d-flex justify-content-center align-items-center m-3'>
-            <form >
-            {/* <label>Enter your area to find donor</label> */}
-            <input type='search' className='search-bar' placeholder='Enter your area to find donor'/>
-            <button className='btn btn-success mx-2' type='submit'>Search</button>
-            </form>
+            <input type='text' className='search-bar' onChange={(e)=>setSearch(e.target.value)} placeholder='Enter your area to find donor'/>
         </div>
+        
         <div className='d-flex justify-content-center align-items-center'>
         <table className="table-sm table table-hover table-bordered table-dark p-3">
                 <thead>
@@ -90,7 +134,7 @@ function Finder() {
                     </tr>
                 </thead>
                 <tbody className='t-width position-relative'>
-                {tableMapping}
+                { tableMapping.length !== 0 ? filteredData() : groupMapping }
                 </tbody>
                 </table>
         </div>

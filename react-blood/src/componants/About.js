@@ -13,14 +13,14 @@ function About() {
     <section id="about">
     <div className='container-sm about'>
        <div className='d-flex flex-row '>
-        <div className='col-lg-6 col-md-6 mt-4'>
+        <div className='col-lg-6 col-md mt-4'>
             <h5>Address</h5><hr className='hr-line'/>
             <h6 >Location : Velpur</h6>
             <h6 >Mondal : Velpur</h6>
             <h6 >District : Nizamabad</h6>
             <h6 >Pincode : 503225</h6>
         </div>
-        <div className='col-lg-6 col-md-6 mt-4'>
+        <div className='col-lg-6 col-md mt-4'>
             <h5>Address</h5><hr className='hr-line'/>
             <h6 >Location : Velpur</h6>
             <h6 >Mondal : Velpur</h6>

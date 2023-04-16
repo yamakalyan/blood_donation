@@ -1,6 +1,6 @@
 import React from 'react'
 import {BsFillCapslockFill} from 'react-icons/bs'
-import {FiHelpCircle} from 'react-icons/fi'
+// import {FiHelpCircle} from 'react-icons/fi'
 import Navbar from './Navbar'
 import About from './About'
 import { useNavigate } from 'react-router-dom'
@@ -40,18 +40,18 @@ const navigator = useNavigate()
 <section id='home'>
     <div className='container p-2' data-aos="fade-up"  data-aos-delay="100">
         {/* <h5 className='text-center p-2 m-auto'>SELECT BLOOD TYPE AND SEARCH</h5> */}
-        <p><a className="btn btn-primary float-right" data-toggle="collapse" href="#multiCollapseExample1"
-            role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><FiHelpCircle/></a></p>
+        {/* <p><a className="btn btn-primary float-right" data-toggle="collapse" href="#multiCollapseExample1"
+            role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><FiHelpCircle/></a></p> */}
    
-    <div className="collapse multi-collapse" id="multiCollapseExample1">
+    {/* <div className="collapse multi-collapse" id="multiCollapseExample1">
       <div className="card card-body">
         <small>
         Click on any blood group and select your address. then you will get infromation of persons, who are near to your location 
         </small>
       </div>
-    </div>
+    </div> */}
     
-      <div className='d-flex justify-content-center align-items-center flex-row shadow rounded p-5 m-5 bg-light '>
+      <div className='d-flex justify-content-center align-items-center flex-row shadow rounded p-5 bg-light '>
 
         <div className='col-sm-4 col-lg-4 col-md-4'>
             <button type="button" className="btn-sm btn-danger p-2  btn-lg btn-block " onClick={handleAplus}>A+</button>
