@@ -8,6 +8,8 @@ import About from './componants/About'
 import Finder from './componants/Finder'
 import Thanks from './componants/Thanks'
 import PatientDetails from './componants/PatientDetails'
+import Services from './componants/Services'
+import Help from './componants/Help'
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
     <Routes>
       <Route path='/' element={<Home/>}></Route>
       <Route path='/register' element={<Reg/>}></Route>
+      <Route path='/help' element={<Help/>}></Route>
+      <Route path='/services' element={<Services/>}></Route>
       <Route path='/support' element={<Support/>}></Route>
       <Route path='/about' element={<About/>}></Route>
       <Route path='/finder' element={<Finder />}></Route>
@@ -24,7 +28,7 @@ function App() {
       <Route path='/thanks/:name' element={<Thanks />}></Route>
       <Route path='/thanks' element={<Thanks />}></Route>
       <Route path='/patient' element={<PatientDetails />}></Route>
-      <Route path='/patient/:id' element={<PatientDetails />}></Route>
+      {/* <Route path='/patient/:id' element={<PatientDetails />}></Route> */}
     </Routes>
     </BrowserRouter>
     </>

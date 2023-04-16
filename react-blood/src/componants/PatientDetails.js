@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Navbar from './Navbar'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import About from './About'
 
 function PatientDetails() {
 
@@ -11,10 +12,8 @@ function PatientDetails() {
     const [patientaadhar, setPatientAadhar] = useState('')
     const [hospital, setHospital] = useState('')
     const [requiredLocation, setRequiredLocation] = useState('')
-    const [msg, setMsg] = useState('')
 
     const navigator = useNavigate()
-    const params = useParams()
     const lowerCaseLocation = requiredLocation.toLowerCase()
 
     const handlePatientDetails =(e)=>{
@@ -36,10 +35,8 @@ function PatientDetails() {
         .then(response =>response.json())
         .then(data =>{
             if (data.server) {
-                setMsg(data.message)
-                navigator(`/finder/${params.id}/${lowerCaseLocation}`)
+                navigator(`/finder/${patientBloodgroup}/${lowerCaseLocation}`)
             } else {
-                setMsg(data.message)
             }
         })
     }
@@ -49,8 +46,8 @@ function PatientDetails() {
     <div className='container'>
         <div className='d-flex flex-row shadow p-3 bg-light'>
             <div className='col-sm-12 col-md-12 col-lg-12 mt-3'>
-                <h2 className='text-center text-primary'>Add Patient Details</h2><hr/>
-                <h3>{msg}</h3>
+                <h2 className='text-center text-primary'>Add Patient Details.</h2><hr/>
+                <h6 className='text-center'>We just take patient details for confirmation.</h6><hr/>
                 <form onSubmit={handlePatientDetails}> 
                 <div className="form-row">
                     <div className="form-group col-md-6">
@@ -83,7 +80,7 @@ function PatientDetails() {
                     <div className="form-group col-md-4">
                     <label>Select Blood Group</label>
                     <select className="form-control" onChange={(e)=>setPatientBloodgroup(e.target.value)} required >
-                        <option value={params.id} >{params.id}</option>
+                        <option value=''>Choose....</option>
                         <option value='A+'>A+</option>
                         <option value='A-'>A-</option>
                         <option value='B+'>B+</option>
@@ -108,7 +105,7 @@ function PatientDetails() {
             </div>
         </div>
     </div>
-      
+    <About/>
     </>
   )
 }
