@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Outlet, Link } from 'react-router-dom'
+import { serviceUrl } from '../helpers/Helper'
 
 export default function Profile() {
     // const [edit, setEdit] = useState(false)
     const token = localStorage.getItem('token')
     const [profile, setProfile] = useState([])
+    const url = serviceUrl()
 
     useEffect(()=>{
       const fetchingProfile = async ()=>{
@@ -13,7 +15,8 @@ export default function Profile() {
           method : "GET",
           headers  : {"Content-Type" : "application/json", "KALYAN_HEADER_KEY" :  token}
         }
-        await fetch("http://localhost:3120/donor/donor", options)
+        const endpoint = url + "donor/donor"
+        await fetch(endpoint, options)
         .then(response =>response.json())
         .then(data =>{
           if (data.server) {

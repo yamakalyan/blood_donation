@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { serviceUrl } from "../helpers/Helper";
 
 function Reg() {
   const [donorName, setDonorname] = useState("");
@@ -30,6 +31,7 @@ function Reg() {
     donorAddress1 + " " + city1 + " " + donorState1 + " " + pincode1;
   const address2 =
     donorAddress2 + " " + city2 + " " + donorState2 + " " + pincode2;
+    const url = serviceUrl()
 
   const navigator = useNavigate();
 
@@ -49,7 +51,8 @@ function Reg() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(creation),
     };
-    fetch("http://localhost:3120/donor/create", options)
+    const endpoint = url + "donor/create"
+    fetch(endpoint, options)
       .then((response) => response.json())
       .then((data) => {
         if (data.server) {
@@ -75,7 +78,8 @@ function Reg() {
         donor_mobile : donorMobile
       }),
     };
-    fetch("http://localhost:3120/donor/add/address", options)
+    const addressEndPoint = url + "donor/add/address"
+    fetch(addressEndPoint, options)
       .then((response) => response.json())
       .then((data) => {
         if (data.server) {

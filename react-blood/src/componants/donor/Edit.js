@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { serviceUrl } from "../helpers/Helper";
 
 export default function Edit() {
   const navigator = useNavigate();
@@ -13,6 +14,7 @@ export default function Edit() {
   const [password, setPassword] = useState("");
   
   const [editMg, setEditmsg] = useState("");
+  const url = serviceUrl()
   
   const handleEdit = (e) => {
     e.preventDefault()
@@ -28,7 +30,8 @@ export default function Edit() {
         donor_password: password,
       }),
     }
-    fetch("http://localhost:3120/donor/update/details", options)
+    const endpoint = url + "update/details"
+    fetch(endpoint, options)
     .then(response=>response.json())
     .then(data =>{
         if (data.server) {

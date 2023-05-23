@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { serviceUrl } from "../helpers/Helper";
 
 function PatientDetails() {
   const [patientName, setPatientName] = useState("");
@@ -14,6 +15,7 @@ function PatientDetails() {
   const navigator = useNavigate();
   const params = useParams();
   const lowerCaseLocation = requiredLocation.toLowerCase();
+  const url = serviceUrl()
 
   const handlePatientDetails = (e) => {
     e.preventDefault();
@@ -31,7 +33,8 @@ function PatientDetails() {
         patient_location: lowerCaseLocation,
       }),
     };
-    fetch("http://localhost:3120/patient/create", options)
+    const endpoint = url + "patient/create"
+    fetch(endpoint, options)
       .then((response) => response.json())
       .then((data) => {
         if (data.server) {

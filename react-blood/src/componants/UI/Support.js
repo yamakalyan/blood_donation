@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { serviceUrl } from "../helpers/Helper";
 
 function Support() {
   const [name, setName] = useState("");
@@ -15,6 +16,7 @@ function Support() {
   const [verify, setverify] = useState(false)
   const [rzpPaymentId, setRzpPaymentId] = useState("");
   const [rzpSign, setRzpSign] = useState("");
+  const url = serviceUrl()
 
   const navigator = useNavigate();
 
@@ -44,7 +46,8 @@ function Support() {
       }),
     };
     const fetching = async () => {
-      await fetch("http://localhost:3120/payment/create", options)
+      const endpoint = url + "payment/create"
+      await fetch(endpoint, options)
         .then((response) => response.json())
         .then((data) => {
           if (data.server) {
@@ -108,7 +111,8 @@ function Support() {
         rzp_paymentId: rzpPaymentId,
       }),
     };
-    fetch("http://localhost:3120/payment/verify", options)
+    const verifyEndPoint = url + "payment/verify"
+    fetch(verifyEndPoint, options)
       .then((response) => response.json())
       .then((data) => {
         if (data.server) {

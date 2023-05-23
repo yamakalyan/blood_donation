@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { serviceUrl } from "../helpers/Helper";
 
 export default function AddressEdit() {
   const token = localStorage.getItem("token");
@@ -17,6 +18,7 @@ export default function AddressEdit() {
   const [editMsg, setEditMsg] = useState("");
   const [password,setPassword] = useState('')
 
+  const url = serviceUrl()
   const address1 =
     donorAddress1 + " " + city1 + " " + donorState1 + " " + pincode1;
   const address2 =
@@ -34,7 +36,8 @@ export default function AddressEdit() {
         donor_password : password
       }),
     };
-    await fetch("http://localhost:3120/donor/update/address", options)
+    const endpoint = url + "update/address"
+    await fetch(endpoint, options)
       .then((response) => response.json())
       .then((data) => {
         if (data.server) {

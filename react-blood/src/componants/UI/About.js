@@ -2,7 +2,6 @@ import React from "react";
 import { ImWhatsapp } from "react-icons/im";
 import { CgMail } from "react-icons/cg";
 import { FaMobileAlt, FaFacebookSquare } from "react-icons/fa";
-import { Link } from "react-router-dom";
 
 function About() {
   const date = new Date();

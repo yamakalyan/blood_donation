@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { serviceUrl } from '../helpers/Helper'
 
 function Finder() {
     const [group, setGroup] = useState([])
@@ -8,10 +9,12 @@ function Finder() {
     const [searchMethod, setSearchMethod] = useState(false)
     const params = useParams()
     const keys = ['donor_address1', 'donor_address2']
+    const url = serviceUrl()
     
     useEffect(()=>{
         const fetching = async ()=>{
-            await fetch('http://localhost:3120/donor/')
+            const endpoint = url + "donor/"
+            await fetch(endpoint)
             .then(response =>response.json())
             .then(data =>{
                 if (data.server) {
@@ -35,7 +38,8 @@ function Finder() {
                     blood_group : params.group
                 })
             }
-            await fetch(`http://localhost:3120/donor/search?q=${params.location}`, options)
+            const searchEndPoint = url + `donor/search?q=${params.location}`
+            await fetch(searchEndPoint, options)
             .then(response =>response.json())
             .then(data =>{
                 if (data.server) {

@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { serviceUrl } from "../componants/helpers/Helper"
 
 const AuthContext = createContext()
 
@@ -8,6 +9,7 @@ export const AuthProvider =({children})=> {
     const [admin, setAdmin] = useState(false)
     const token = localStorage.getItem('token')
     const navigator = useNavigate()
+    const url = serviceUrl()
 
    useEffect(()=>{
 
@@ -23,7 +25,8 @@ export const AuthProvider =({children})=> {
         method : 'POST',
         headers : {'content-type' : 'application/json', 'KALYAN_HEADER_KEY' : token}
       }
-    await fetch('http://localhost:3120/donor/auth', options)
+      const endpoint = url + "donor/auth"
+    await fetch(endpoint, options)
       .then(response =>response.json())
       .then(data =>{
         if (data.server) {

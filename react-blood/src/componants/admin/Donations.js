@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { IoCheckmarkDoneCircleOutline } from "react-icons/io5";
 import { MdSmsFailed } from "react-icons/md";
+import { serviceUrl } from "../helpers/Helper";
 
 export default function Donations() {
   const [donations, setDonations] = useState([]);
+  const Url = serviceUrl()
 
   useEffect(() => {
     const fetchingDonations = async () => {
-      await fetch("http://localhost:3120/payment/donations")
+      const endpoint = Url + "payment/donations"
+      await fetch(endpoint)
         .then((response) => response.json())
         .then((data) => {
           if (data.server) {

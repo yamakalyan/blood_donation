@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
+import { serviceUrl } from "../helpers/Helper";
 
 export default function Manage() {
   const [group, setGroup] = useState([]);
@@ -10,6 +11,7 @@ export default function Manage() {
 
   const token = localStorage.getItem("token");
   const navigator = useNavigate()
+  const url = serviceUrl()
 
   useEffect(() => {
     const options = {
@@ -17,7 +19,8 @@ export default function Manage() {
       headers: { "Content-Type": "application/json", "KALYAN_HEADER_KEY" : token },
     };
     const fetching = async () => {
-      await fetch("http://localhost:3120/admin", options)
+      const endpoint = url + "admin"
+      await fetch(endpoint, options)
         .then((response) => response.json())
         .then((data) => {
           if (data.server) {
@@ -38,7 +41,8 @@ export default function Manage() {
         donor_id: donor_id,
       }),
     };
-    await fetch("http://localhost:3120/admin/delete", options)
+    const adminDelendpoint = url + "admin/delete"
+    await fetch(adminDelendpoint, options)
       .then((resposne) => resposne.json())
       .then((data) => {
         if (data.server) {
