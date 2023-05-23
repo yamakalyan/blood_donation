@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
-function Thanks() {
+export default function SuppThanks() {
   const params = useParams();
   return (
     <>
@@ -9,13 +9,12 @@ function Thanks() {
         <div className="row p-5">
           <h1 className="supp-text-main">Thanks you {params.name}</h1>
           <h3 className="supp-text-quote">
-            “None of our success would be possible without generous donors like
-            you. Thank you again for your commitment and kindness.”
-          </h3>
+                “Many people say they want to help; fewer actually step up to do
+                it. Thank you for being one of the few today and stepping up
+                with your important donation.”
+              </h3>
         </div>
       </div>
     </>
   );
 }
-
-export default Thanks;

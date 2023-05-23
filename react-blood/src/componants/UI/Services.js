@@ -1,14 +1,11 @@
 import React from 'react'
-import Navbar from './Navbar'
-import About from './About'
 
 function Services() {
   return (
     <>
-    <Navbar/>
 <section id='services'>
     <div className='container-fluid'>
-        <div className='row rounded p-5 bg-light my-5'>
+        <div className='row p-5 bg-light'>
             <div className='col-lg-6 col-md-6'>
         <h1 className='text-center'>Services</h1><hr/>
                 <p>                    
@@ -31,7 +28,6 @@ function Services() {
         </div>
     </div>
 </section>
-<About/>
     </>
   )
 }

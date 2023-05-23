@@ -1,12 +1,8 @@
 import React from 'react'
-import {BsFillCapslockFill} from 'react-icons/bs'
-import Navbar from './Navbar'
-import About from './About'
 
 function Help() {
   return (
     <div>
-      <Navbar/>
       <section id='help'>
     <div className='container-fluid'>
         <div className='row rounded p-5 bg-light my-5'>
@@ -28,9 +24,7 @@ function Help() {
             </div>
         </div>
     </div>
-<a className="moving-up back-to-top" role="button" href='#home'><BsFillCapslockFill /></a>
 </section>
-<About/>
     </div>
   )
 }

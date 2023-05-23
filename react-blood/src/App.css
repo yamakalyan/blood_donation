@@ -1,68 +1,74 @@
-body{
+body {
   scroll-behavior: smooth;
   font-family: 'Cardo', serif;
-  background: rgb(14, 17, 40);
+  background: rgb(25 72 53 / 89%);
+  box-sizing: border-box;
+  margin: 0%;
+  padding: 0;
 }
-.navbar{
+
+ul {
+  list-style: none;
+}
+
+.navbar {
   position: sticky;
   top: 0%;
 }
-.moving-up{
-  display: block;
-  position: fixed;
-  background-color: #fff;
-  right: 2%;
-  bottom: 2%;
-  padding: 10px;
-  border-radius: 5px;
-  border-color: none;
-}
-.hr-line{
+
+.hr-line {
   background-color: white;
-  padding: 1px;
 }
-.help-button-blood-group{
+
+.help-button-blood-group {
   min-height: 120px;
 }
-.help-width-button{
+
+.help-width-button {
   width: 300px;
 }
-.privacy{
+
+.privacy {
   text-align: center;
   font-size: small;
   color: white;
   letter-spacing: 6px;
   border-top: 0.5px solid white;
-  padding: 10px;
-  margin: 0%;
+  padding: 3px;
 }
-.privacy span{
+
+.privacy span {
   margin: 0px 15px 0 15px;
 }
-#about{
-  margin: 30px 0 0 0;
-  background: rgb(26, 26, 26);
+
+#about {
+  /* background: #373737; */
   color: white;
-  bottom: 0%;
 }
-.links{
+
+.links {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.links .links-button{
+
+.links .links-button {
   background: #f5f5f9;
-  padding: 12px;
-  border-radius: 50%;
+  padding: 10px;
+  border: none;
+  border-radius: 30%;
 }
-.links h2{
+
+.links h2 {
   margin: 10px;
   font-size: 20px;
 }
-.links .links-button:hover{
+
+.links .links-button:hover {
   background: #bcbcc4;
 }
-.search-bar{
+
+.search-bar {
   height: 40px;
   width: 350px;
   border-radius: 10px;
@@ -71,68 +77,117 @@ body{
   letter-spacing: 3px;
   border-color: none;
 }
-.test{
+
+.test {
   height: auto;
   width: 100%;
 }
-@media (max-width : 420px){
-  .container-sm{
+
+.error-404 {
+  text-align: center;
+  font-size: 80px;
+  color: rgb(235, 38, 38);
+}
+
+
+.supp-text-main {
+  color: rgb(81, 136, 191);
+  text-align: center;
+  font-size: 80px;
+  margin-bottom: 20px;
+}
+
+.supp-text-quote {
+  color: grey;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.active {
+  font-weight: bold;
+}
+
+.up-btn {
+  right: 5%;
+  bottom: 3%;
+  position: fixed;
+  border: none;
+  border-radius: 5px;
+}
+
+
+
+
+@media (max-width : 420px) {
+  .container-sm {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: auto;
-    min-width: auto;
-    margin: 0;
-  }
-  .container-sm h5{
-    font-size: medium;
-  }
-  .container-sm h6{
-    display: flex;
-    flex-direction: row;
-    font-size: 10px;
-  }
-  .copyright{
-    font-size: 7px;
-  }
-  .privacy{
-    text-align: center;
-    font-size: 8px;
-    letter-spacing: 0;
-    border-top: 1px solid white;
     width: 100%;
   }
-  .privacy span{
-    margin: 2px;
+
+  .container-sm h5 {
+    font-size: 12px;
   }
-  .table-sm{
-    min-width: 100px;
+
+  .container-sm ul li {
+    font-size: 14px;
   }
-  .t-data{
+
+  .copyright {
     font-size: 7px;
   }
-  .t-width{
+
+  .privacy {
+    margin: 0;
+    text-align: center;
+    letter-spacing: 2px;
+    width: 100%;
+  }
+
+  .privacy span {
+    font-size: 6px;
+    gap: 5px;
+  }
+
+  .table-sm {
+    min-width: 100px;
+  }
+
+  .t-data {
+    font-size: 7px;
+  }
+
+  .t-width {
     min-width: auto;
   }
-  .t-button{
+
+  .t-button {
     height: auto;
     width: 20px;
   }
-  .links .links-button{
+
+  .links .links-button {
     background: #f5f0f0;
     padding: 5px;
-    border-radius: 50%;
-    border-color: none;
+    border-radius: 30%;
+    border: none;
     width: auto;
   }
-  .links h2{
+
+  .links h2 {
     margin: 5px;
     font-size: 15px;
   }
-  .links .links-button:hover{
+
+  .links .links-button:hover {
     background: #bcbcc4;
+    border: none;
   }
-  .search-bar{
+
+  .search-bar {
     height: 20px;
     width: 150px;
     border-radius: 2px;
@@ -140,8 +195,43 @@ body{
     border: 2px solid rgb(137, 232, 137);
     border-color: none;
   }
-  .search-bar label{
+
+  .search-bar label {
     font-size: 5px;
   }
-  
+
+  .hr-line {
+    padding: 0;
+  }
+
+  p {
+    font-size: 10px;
+  }
+
+  h1 {
+    font-size: medium;
+  }
+
+  label {
+    font-size: small;
+  }
+
+  span {
+    font-size: small;
+  }
+
+  .supp-text-main {
+    color: rgb(81, 136, 191);
+    /* text-align: center; */
+    font-size: 25px;
+    margin-bottom: 5px;
+  }
+
+  .supp-text-quote {
+    color: grey;
+    /* text-align: center; */
+    font-weight: bold;
+    font-size: 10px;
+  }
+
 }
