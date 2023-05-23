@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate} from 'react-router-dom'
+import { serviceUrl } from '../helpers/Helper'
 
 export default function Login() {
     const [username, setUsername] = useState('')
@@ -7,6 +8,7 @@ export default function Login() {
     const [loginMsg, setLoginmsg] = useState('')
 
     const navigator = useNavigate()
+    const serviceURl = serviceUrl()
 
     const loginUser =(e)=>{
         e.preventDefault()
@@ -22,7 +24,8 @@ export default function Login() {
                     donor_password : userPassword
                 })
             }
-            await fetch("http://localhost:3120/donor/login", options)
+            const endpoint = serviceURl + "/donor/login"
+            await fetch(endpoint, options)
             .then(response =>response.json())
             .then(data =>{
                 if (data.server) {
