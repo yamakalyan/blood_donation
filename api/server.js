@@ -10,7 +10,7 @@ const admin = require('./controllers/Admin')
 env.config()
 
 app.use(cors({
-    origin : 'https://yamakalyan.github.io/blood_donation_app/'
+    origin : '*'
 }))
 
 app.listen(process.env.PORT, (req, res)=>{
