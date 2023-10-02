@@ -24,7 +24,7 @@ export default function Login() {
                     donor_password : userPassword
                 })
             }
-            const endpoint = serviceURl + "/donor/login"
+            const endpoint = serviceURl + "donor/login"
             await fetch(endpoint, options)
             .then(response =>response.json())
             .then(data =>{

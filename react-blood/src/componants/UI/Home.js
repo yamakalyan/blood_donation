@@ -7,28 +7,28 @@ function Home() {
 const navigator = useNavigate()
 
    const handleAplus =()=>{
-            navigator('/patient/A+')
+            navigator('/finder/A+')
    }
    const handleBplus =()=>{
-            navigator('/patient/B+')
+            navigator('/finder/B+')
    }
    const handleABplus =()=>{
-            navigator('/patient/AB+')
+            navigator('/finder/AB+')
    }
    const handleAminus =()=>{
-            navigator('/patient/A-')
+            navigator('/finder/A-')
    }
    const handleBminus =()=>{
-            navigator('/patient/B-')
+            navigator('/finder/B-')
    }
    const handleABminus =()=>{
-            navigator('/patient/AB-')
+            navigator('/finder/AB-')
    }
    const handleOplus =()=>{
-            navigator('/patient/O+')
+            navigator('/finder/O+')
    }
    const handleOminus =()=>{
-            navigator('/patient/O-')
+            navigator('/finder/O-')
    }
    
   return (
@@ -39,20 +39,24 @@ const navigator = useNavigate()
     <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
   </ol>
   <div className="carousel-inner">
     <div className="carousel-item active">
-      <img className="img-fluid" src="blood2.png" alt="First slide"/>
+      <img className="img-fluid" src="1.jpg" alt="First slide"/>
       <div className="carousel-caption d-none d-md-block">
     <h5>...</h5>
     <p>...</p>
   </div>
     </div>
     <div className="carousel-item">
-      <img className="img-fluid" src="blood1.png" alt="Second slide"/>
+      <img className="img-fluid" src="2.jpg" alt="Second slide"/>
     </div>
     <div className="carousel-item">
-      <img className="img-fluid" src="Charity 2.png" alt="Third slide"/>
+      <img className="img-fluid" src="3.jpg" alt="Third slide"/>
+    </div>
+    <div className="carousel-item">
+      <img className="img-fluid" src="4.jpg" alt="Third slide"/>
     </div>
   </div>
   <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -117,7 +121,7 @@ const navigator = useNavigate()
     <div className='container-fluid'>
         <div className='row rounded p-5 bg-light'>
         <div className='col-md-6 col-lg-6'>
-                <img src='drop.jpg' className='img-fluid shadow' alt='hand'/>
+                <img src='1.jpg' className='img-fluid shadow' alt='hand'/>
             </div>
             <div className='col-lg-6 col-md-6'>
         <h1 className='text-center'>Foundation Acts</h1><hr/>

@@ -109,7 +109,7 @@ if (genratedsigniture === rzpSigture) {
 
 pay.get('/donations', (req, res)=>{
     try {
-    const creatingPAyment = `SELECT * FROM donations`;
+    const creatingPAyment = `SELECT * FROM donations ORDER BY id DESC`;
 
         db.query(creatingPAyment, (err, results) => {
           if (err) {

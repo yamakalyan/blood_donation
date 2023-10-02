@@ -9,7 +9,7 @@ function Navbar() {
       <nav className="navbar navbar-expand-sm sticky-top navbar-light bg-light mb-3">
         <div className='container'>
         <img src='logo.jpg' alt='' width="40px" className='rounded-circle mr-2'/>
-  <Link className="navbar-brand" to='/' > SSSV</Link>
+  <Link className="navbar-brand" to='/' > <h6 className='title-name'><b>స్నేహాలయా స్వచ్ఛంద సంస్థ</b></h6></Link>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>

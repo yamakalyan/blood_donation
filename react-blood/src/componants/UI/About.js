@@ -13,7 +13,7 @@ function About() {
           <div className="row my-5">
             <div className="col-md col-lg">
               <h1 className="text-center text-org">
-                Snehalaya Swachanda Seva Velpur.
+                Snehalaya Swachanda Samstha Velpur.
               </h1>
             </div>
           </div>
@@ -111,7 +111,7 @@ function About() {
 
         <div className="container mt-3">
           <p className="text-center copyright">
-            All Copyrights @ {year} reserved by Snehalaya Swachanda Seva
+            All Copyrights @ {year} reserved by Snehalaya Swachanda Samstha
             Velpur.
           </p>
           <p className="text-center copyright">Designed by Yamakalyan</p>

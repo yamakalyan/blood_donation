@@ -21,7 +21,7 @@ export default function Scroll() {
     window.addEventListener('scroll', handleScroll)
 
   return (
-    <div>.
+    <div>
         <button className='up-btn' style={{display : scroolBtn ? "inline" : "none"}} onClick={handleScrollingTop}> <BsFillCapslockFill /> </button>
     </div>
   )
